@@ -7,13 +7,13 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 app = Flask(__name__)
 
-
 DB_CONFIG = {
     'host': 'db',
     'user': 'root',
     'password': '1111',
     'database': 'metrics_db'
 }
+
 
 def get_db_connection():
     try:
@@ -24,6 +24,7 @@ def get_db_connection():
     except Error as e:
         logging.error(f"Error connecting to MySQL: {e}")
     return None
+
 
 @app.route('/metrics/talked_time', methods=['POST'])
 def insert_talked_time():
@@ -50,6 +51,7 @@ def insert_talked_time():
             connection.close()
     return jsonify({"error": "Failed to connect to the database"}), 500
 
+
 @app.route('/metrics/microphone_used', methods=['POST'])
 def insert_microphone_used():
     data = request.json
@@ -75,6 +77,7 @@ def insert_microphone_used():
             connection.close()
     return jsonify({"error": "Failed to connect to the database"}), 500
 
+
 @app.route('/metrics/speaker_used', methods=['POST'])
 def insert_speaker_used():
     data = request.json
@@ -99,6 +102,8 @@ def insert_speaker_used():
             cursor.close()
             connection.close()
     return jsonify({"error": "Failed to connect to the database"}), 500
+
+
 @app.route('/metrics/speaker_used', methods=['GET'])
 def get_speaker_used():
     logging.debug("Received request to get speaker_used data.")
@@ -121,6 +126,7 @@ def get_speaker_used():
             cursor.close()
             connection.close()
     return jsonify({"error": "Failed to connect to the database"}), 500
+
 
 @app.route('/metrics/voice_sentiment', methods=['POST'])
 def insert_voice_sentiment():
@@ -147,6 +153,7 @@ def insert_voice_sentiment():
             cursor.close()
             connection.close()
     return jsonify({"error": "Failed to connect to the database"}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
