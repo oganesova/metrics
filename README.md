@@ -189,27 +189,7 @@ json
   }
   
 ]
-6. GET /metrics/microphone_used
-Retrieves all records from the microphone_used table.
-
-Request
-URL: http://localhost:5000/metrics/microphone_used
-Method: GET
-Response
-Success (200 OK):
-json
-[
-  {
-    "id": 1,
-    "user_id": 1,
-    "session_id": 101,
-    "usage_start": "2024-08-10T10:00:00",
-    "usage_end": "2024-08-10T10:30:00",
-    "timestamp": "2024-08-10T10:00:00"
-  }
-
-]
-7. GET /metrics/speaker_used
+6. GET /metrics/speaker_used
 Retrieves all records from the speaker_used table.
 
 Request
@@ -226,26 +206,6 @@ json
     "session_id": 101,
     "usage_start": "2024-08-10T10:00:00",
     "usage_end": "2024-08-10T10:30:00",
-    "timestamp": "2024-08-10T10:00:00"
-  }
-  
-]
-8. GET /metrics/voice_sentiment
-Retrieves all records from the voice_sentiment table.
-
-Request
-URL: http://localhost:5000/metrics/voice_sentiment
-Method: GET
-Response
-Success (200 OK):
-json
-[
-  {
-    "id": 1,
-    "user_id": 1,
-    "session_id": 101,
-    "sentiment_score": 0.85,
-    "sentiment_label": "positive",
     "timestamp": "2024-08-10T10:00:00"
   }
   
